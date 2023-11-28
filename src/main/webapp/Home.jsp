@@ -17,8 +17,26 @@ div {
 <body>
 <div>
 <h1>ToDo Home</h1>
-<button>Add Task</button>
-<button formaction="logout" formmethod="post">Logout</button>
+<table border="1">
+<tr>
+<th>Task Name</th>
+<th>Task Description</th>
+<th>Date Created</th>
+<th>Status</th>
+<th>Delete</th>
+<th>Edit</th>
+</tr>
+<tr>
+<td>Swimming</td>
+<td>Water</td>
+<td>12-nov-2023</td>
+<td>Complete</td>
+<td><button>Delete</button></td>
+<td><button>Edit</button></td>
+</tr>
+</table><br>
+<a href="session-add-task"><button>Add Task</button></a><br>
+<a href="Logout"><button>Logout</button></a>
 </div>
 </body>
 </html>
