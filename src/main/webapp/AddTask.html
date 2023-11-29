@@ -4,8 +4,8 @@
 <meta charset="ISO-8859-1">
 <title>Add Task</title>
 <style type="text/css">
-body{
-display: flex;
+body {
+	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
@@ -13,25 +13,27 @@ display: flex;
 </style>
 </head>
 <body>
-<form action="" >
-<fieldset>
-<legend>Enter Task Here,</legend>
-<table border="1">
+	<form action="add-task" method="post">
+		<fieldset>
+			<legend>Enter Task Here,</legend>
+			<table border="1">
 
 
-<tr>
-<th>Task Name : </th>
-<td><input type="text"></td>
-</tr>
-<tr>
-<th>Task Description : </th>
-<td><input type="text"></td>
-</tr>
-<th><button>Add</button></th>
-<th><button>Cancel</button></th>
-</table>
-</fieldset>
-</form><br><br>
-<a href="Home.jsp"><button>Back</button></a>
+				<tr>
+					<th>Task Name :</th>
+					<td><input type="text" name="tname"></td>
+				</tr>
+				<tr>
+					<th>Task Description :</th>
+					<td><input type="text" name="tdescription"></td>
+				</tr>
+				<th><button>Add</button></th>
+				<th><button>Cancel</button></th>
+			</table>
+		</fieldset>
+	</form>
+	<br>
+	<br>
+	<a href="Home.jsp"><button>Back</button></a>
 </body>
 </html>

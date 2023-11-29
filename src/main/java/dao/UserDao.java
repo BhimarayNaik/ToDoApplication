@@ -2,12 +2,14 @@ package dao;
 
 import java.util.List;
 
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
+import dto.Task;
 import dto.UserDto;
 
 public class UserDao {
@@ -28,5 +30,17 @@ public UserDto findByEmail(String email) {
 	else {
 		return null;
 	}
+}
+public void saveTask(Task task) {
+	manager.getTransaction().begin();
+	manager.persist(task);
+	manager.getTransaction().commit();
+	
+}
+public void updateUser(UserDto dto) {
+	manager.getTransaction().begin();
+	manager.merge(dto);
+	manager.getTransaction().commit();
+	
 }
 }
