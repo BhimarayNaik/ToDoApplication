@@ -1,5 +1,7 @@
+<%@page import="dto.Task"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,28 +17,44 @@ div {
 </style>
 </head>
 <body>
-<div>
-<h1>ToDo Home</h1>
-<table border="1">
-<tr>
-<th>Task Name</th>
-<th>Task Description</th>
-<th>Date Created</th>
-<th>Status</th>
-<th>Delete</th>
-<th>Edit</th>
-</tr>
-<tr>
-<td>Swimming</td>
-<td>Water</td>
-<td>12-nov-2023</td>
-<td>Complete</td>
-<td><button>Delete</button></td>
-<td><button>Edit</button></td>
-</tr>
-</table><br>
-<a href="session-add-task"><button>Add Task</button></a><br>
-<a href="Logout"><button>Logout</button></a>
-</div>
+	<% 
+List<Task> list=(List<Task>) request.getAttribute("list");
+%>
+	<div>
+		<h1>ToDo Home</h1>
+		<table border="1">
+			<tr>
+				<th>Task Name</th>
+				<th>Task Description</th>
+				<th>Date Created</th>
+				<th>Status</th>
+				<th>Delete</th>
+				<th>Edit</th>
+			</tr>
+			<%
+			if(list!=null)
+			{
+			 for(Task task:list){%>
+			<tr>
+				<th><%=task.getName() %></th>
+				<th><%=task.getDescription() %></th>
+				<th><%=task.getCreatedTime() %></th>
+				<th>
+				<% if(task.isStatus()){
+				%>Completed
+			     <% }
+			     else{%>
+			     <button>Complete</button>
+			     <%} %>
+			   </th>
+				<th><button>Delete</button></th>
+				<th><button>Edit</button></th>
+			</tr>
+			<%} } %>
+
+		</table>
+		<br> <a href="session-add-task"><button>Add Task</button></a><br>
+		<a href="Logout"><button>Logout</button></a>
+	</div>
 </body>
 </html>
