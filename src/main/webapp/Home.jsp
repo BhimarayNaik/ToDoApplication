@@ -1,3 +1,5 @@
+<%@page import="java.time.format.DateTimeFormatter"%>
+<%@page import="java.util.Formatter"%>
 <%@page import="dto.Task"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -34,17 +36,19 @@ List<Task> list=(List<Task>) request.getAttribute("list");
 			<%
 			if(list!=null)
 			{
+				DateTimeFormatter formatter=DateTimeFormatter.ofPattern("dd MMM YYYY hh:mm");
 			 for(Task task:list){%>
 			<tr>
 				<th><%=task.getName() %></th>
 				<th><%=task.getDescription() %></th>
-				<th><%=task.getCreatedTime() %></th>
+				<th><%=task.getCreatedTime().format(formatter)%></th>
 				<th>
 				<% if(task.isStatus()){
 				%>Completed
 			     <% }
 			     else{%>
-			     <button>Complete</button>
+			     
+			     <a href="change-status?id=<%=task.getId()%>"><button>Complete</button></a>
 			     <%} %>
 			   </th>
 				<th><button>Delete</button></th>

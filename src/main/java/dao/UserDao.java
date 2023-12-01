@@ -43,4 +43,17 @@ public void updateUser(UserDto dto) {
 	manager.getTransaction().commit();
 	
 }
+public Task findTaskById(int id) {
+	return manager.find(Task.class, id);
+}
+public void updateTask(Task task) {
+	manager.getTransaction().begin();
+	manager.merge(task);
+	manager.getTransaction().commit();
+}
+public UserDto findById(int id) {
+	return manager.find(UserDto.class,id);	
+	
+}
+
 }
