@@ -55,5 +55,12 @@ public UserDto findById(int id) {
 	return manager.find(UserDto.class,id);	
 	
 }
+public void deleteTask(Task task) {
+	manager.getTransaction().begin();
+	manager.remove(task);
+	manager.getTransaction().commit();
+	
+	
+}
 
 }

@@ -51,7 +51,7 @@ List<Task> list=(List<Task>) request.getAttribute("list");
 			     <a href="change-status?id=<%=task.getId()%>"><button>Complete</button></a>
 			     <%} %>
 			   </th>
-				<th><button>Delete</button></th>
+				<th><a href="delete-task?id=<%=task.getId()%>"><button>Delete</button></th></a>
 				<th><button>Edit</button></th>
 			</tr>
 			<%} } %>

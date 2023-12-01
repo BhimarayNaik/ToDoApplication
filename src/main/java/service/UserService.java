@@ -52,6 +52,15 @@ public class UserService {
 		task.setStatus(true);
 		dao.updateTask(task);
 	}
-	
+
+	public void deleteTask(int id,UserDto dto) {
+		UserDao dao=new UserDao();
+		Task task=dao.findTaskById(id);
+		if(task!=null) {
+		dto.getTasks().remove(task);
+		dao.updateUser(dto);
+		dao.deleteTask(task);
+	}
+	}
 
 }
