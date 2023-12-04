@@ -8,7 +8,7 @@
 <meta charset="ISO-8859-1">
 <title>Edit Task</title>
 <style type="text/css">
-body {
+div {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
