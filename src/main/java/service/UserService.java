@@ -57,10 +57,17 @@ public class UserService {
 		UserDao dao=new UserDao();
 		Task task=dao.findTaskById(id);
 		if(task!=null) {
+			//removing mapping
 		dto.getTasks().remove(task);
 		dao.updateUser(dto);
+		//delete task
 		dao.deleteTask(task);
 	}
+	}
+
+	public void updateTask(Task task) {
+		UserDao dao = new UserDao();
+		dao.updateTask(task);
 	}
 
 }

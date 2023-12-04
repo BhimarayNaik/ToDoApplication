@@ -52,7 +52,7 @@ List<Task> list=(List<Task>) request.getAttribute("list");
 			     <%} %>
 			   </th>
 				<th><a href="delete-task?id=<%=task.getId()%>"><button>Delete</button></th></a>
-				<th><button>Edit</button></th>
+				<th> <a href="edit?id=<%=task.getId()%>"><button>Edit</button></th></a>
 			</tr>
 			<%} } %>
 
